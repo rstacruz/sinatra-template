@@ -12,7 +12,9 @@
 #   files += Dir['public/js/app.*.js']
 #
 #   # Say, Main is a Sinatra app or something.
-#   Main.set :js_files, JsFiles.new(files, :prefix => '/javascript')
+#   Main.set :js_files, JsFiles.new(files,
+#     :prefix => '/javascript',
+#     :file_prefix => './app/js')
 #   Main.js_files.mtime #=> (Time) 2010-09-02 8:00PM
 #
 # Using in Sinatra:
@@ -54,6 +56,8 @@ class JsFiles
   def initialize(files, options={})
     @files, @options = files, options
     @options[:prefix] ||= '/js/'
+    @options[:file_prefix] ||= '/app/js'
+    @options[:file_prefix] = File.expand_path(@options[:file_prefix])
   end
 
   # @group Metadata methods
@@ -76,7 +80,7 @@ class JsFiles
   #
   def hrefs
     @files.map { |f|
-      path = f.dup
+      path = File.expand_path(f)
       path.gsub! /\.[^\.]*$/, ''
       path.gsub! /^#{ @options[:file_prefix] }/, ''
       File.join @options[:prefix], path + ".js?#{File.mtime(f).to_i}"
