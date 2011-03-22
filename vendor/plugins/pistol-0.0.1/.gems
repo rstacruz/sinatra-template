@@ -1,0 +1,7 @@
+# .gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+cuba -v0.2.0
+rack -v1.2.1
+sinatra -v1.0
+tilt -v1.1
+batch -v0.0.3
+cutest -v0.1.5

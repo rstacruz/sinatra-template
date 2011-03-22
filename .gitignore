@@ -1,0 +1,29 @@
+# Mac OS
+.DS_Store
+
+# Textmate
+*.tmproj
+tmtags
+
+# Emacs
+*~
+\#*
+.\#*
+
+# VIM
+*.swp
+*.swo
+*.swn
+
+# Project (general)
+/vendor/*/vendor
+/log
+/logs
+
+# Docs
+.yardoc
+doc
+
+# Others
+.sass-cache
+.rvmrc

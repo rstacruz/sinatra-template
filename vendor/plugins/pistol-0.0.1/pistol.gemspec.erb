@@ -1,0 +1,25 @@
+<%- require "./lib/pistol" -%>
+Gem::Specification.new do |s|
+  s.name = "pistol"
+  s.version = "<%= Pistol::VERSION %>"
+  s.summary = %{The light tool for the reloading job.}
+  s.description = %Q{Extremely lightweight reloading tool for rack &
+                     sinatra apps.}
+  s.authors = ["Michel Martens", "Damian Janowski", "Cyril David"]
+  s.email = ["michel@soveran.com", "djanowski@dimaion.com",
+             "cyx@pipetodevnull.com"]
+  s.homepage = "http://github.com/monk/pistol"
+  s.files = <%= Dir[
+    "lib/**/*.rb",
+    "README*",
+    "LICENSE",
+    "Rakefile",
+    "test/**/*.rb"
+  ].inspect %>
+
+  s.rubyforge_project = "pistol"
+  s.add_development_dependency "cutest", "~> 1.0"
+  s.add_development_dependency "rack", "~> 1.0"
+  s.add_development_dependency "sinatra", "~> 1.0"
+  s.add_development_dependency "cuba", "~> 1.0"
+end
