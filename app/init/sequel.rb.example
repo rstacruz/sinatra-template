@@ -1,0 +1,62 @@
+module Sequel
+module Plugins
+module AutoSchema
+  module ClassMethods
+    def sync_schema
+      return create_table  unless table_exists?
+
+      db_columns = db.schema(table_name).map { |row| row[0] }
+      columns = schema.columns
+
+      db.alter_table(table_name) do
+        columns.each do |column|
+          # Not present
+          if !db_columns.include?(column[:name])
+            add_column column[:name], column[:type]
+          end
+
+          # Can also do add_index, rename_column
+        end
+      end
+
+      @db_schema = get_db_schema(true)
+    end
+  end
+end
+end
+end
+
+# Sequel
+Sequel::Model.plugin :schema
+Sequel::Model.plugin :auto_schema
+Sequel::Model.plugin :validation_helpers
+Sequel.extension :inflector
+
+class Main
+  def self.models
+    Object.constants.map { |c| Object.const_get(c) }.select { |klass| klass.is_a?(Class) && klass.ancestors.include?(Sequel::Model) }
+  end
+
+  def self.db_flush!(&blk)
+    tables = models.map(&:table_name)
+    tables.each { |t| yield t if block_given?; db.drop_table t }
+  end
+
+  def self.db_auto_migrate!(&blk)
+    models.each { |m| yield m if block_given?; m.sync_schema }
+  end
+end
+
+# Add to Rakefile:
+#
+#   desc "Create/alter tables"
+#   task(:migrate) {
+#     require './init'
+#     Main.db_auto_migrate! { |model| puts "* Migrating #{model}..." }
+#   }
+#   
+#   desc "Drop tables"
+#   task(:drop) {
+#     require './init'
+#     Main.db_flush! { |table| puts "* Dropping #{table}..." }
+#   }
