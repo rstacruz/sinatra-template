@@ -39,13 +39,15 @@ class Main
 
   def self.db_flush!(&blk)
     tables = models.map(&:table_name)
-    tables.each { |t| yield t if block_given?; db.drop_table t }
+    tables.each { |t| yield t if block_given?; db.drop_table t  if db.table_exists?(t) }
   end
 
   def self.db_auto_migrate!(&blk)
     models.each { |m| yield m if block_given?; m.sync_schema }
   end
 end
+
+Main.set :db, Sequel.connect(ENV['DATABASE_URL'] || Main.sequel)
 
 # Add to Rakefile:
 #
