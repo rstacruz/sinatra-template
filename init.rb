@@ -48,7 +48,7 @@ class Main < Sinatra::Base
   serve_jsfiles '/js/app.js', js_files
 end
 
-Dir["./app/**/*.rb"].each { |rb| require rb }
+Dir["./app/{init/,}**/*.rb"].each { |rb| require rb }
 
 Main.set :port, ENV['PORT'].to_i  unless ENV['PORT'].nil?
 Main.run!  if Main.run?
