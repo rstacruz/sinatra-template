@@ -1,12 +1,12 @@
 ENV['RACK_ENV'] ||= 'development'
 
-# Loadables
-$:.unshift *Dir["./vendor/*/*/lib"]
-$:.unshift *Dir["./lib"]
-
 # Bundler
 require "bundler"
 Bundler.require :default, ENV['RACK_ENV'].to_sym
+
+# Loadables
+$:.unshift *Dir["./vendor/*/*/lib"]
+$:.unshift *Dir["./lib"]
 
 class Main < Sinatra::Base
   set      :root, lambda { |*args| File.join(File.dirname(__FILE__), *args) }

@@ -1,3 +1,4 @@
+require 'jsfiles'
 require 'sinatra/csssupport'
 require 'sinatra/jssupport'
 
