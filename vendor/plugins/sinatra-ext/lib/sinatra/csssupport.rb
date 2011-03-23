@@ -1,18 +1,36 @@
 # Support for Sass/SCSS/Less.
 #
-# == Example
+# == Usage
 #
-#   require 'sinatra/csssupport'
+#   require 'sinatra/support/csssupport'
+#
+# Use {#serve_css} in the Sinatra DSL to serve up files.
 #
 #   register Sinatra::CssSupport
-#   serve_css '/css', from: root('app/css')
+#   serve_css '/styles', from: './app/css'
 #
-#   # reads app/css/style.css (or .scss, .sass, .less)
-#   $ curl "http://localhost:4567/css/style.css"
+# Assuming you have a +app/css/print.scss+ file, you will
+# then be able to access it from the given URL prefix.
+#
+#   $ curl "http://localhost:4567/styles/print.css"
+#
+# This plugin supports Sass, Less and SCSS and guesses by the
+# file name.
+#
+# == Caveats
+#
+# Note that you will need to set your Sass/SCSS +load_path+ settings.
+#
+#   Main.configure do |m|
+#     m.set :scss, {
+#       :load_paths => [ 'app/css' ]
+#     }
+#     m.set :scss, self.scss.merge(:style => :compressed) if m.production?
+#   end
 #
 module Sinatra::CssSupport
   def self.registered(app)
-    app.set :css_max_age, 86400*30
+    app.set :css_max_age, app.development? ? 0 : 86400*30
   end
 
   def serve_css(url_prefix, options={})
@@ -24,7 +42,7 @@ module Sinatra::CssSupport
 
       content_type :css, :charset => 'utf-8'
       last_modified File.mtime(fname)
-      cache_control :public, :must_revalidate, :max_age => settings.js_max_age
+      cache_control :public, :must_revalidate, :max_age => settings.css_max_age
 
       if fname =~ /\.scss$/
         scss File.read(fname)
