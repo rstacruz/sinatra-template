@@ -35,12 +35,13 @@ Skeleton Info
 
 The skeleton comes with no ORM by default.
 
-However, there are sample config files in `config/` for Ohm and Sequel which has
-instructions on how to set them up.
+However, there are sample initializers in `app/init/` and config files in
+`config/` for Ohm and Sequel. See those files for instructions.
 
 ### Sinatra-style configuration
 
-The bootstrapper loads all of `config/*.rb`, starting with the default files (like `haml.default.rb`).
+The bootstrapper loads all of `config/*.rb`, starting with the default
+files (like `haml.default.rb`).
 
  * To set settings: `Main.set :name, "Hello"`
  * To retrieve settings: `settings.name`
@@ -75,6 +76,36 @@ Dump your Less, SCSS, or Sass files onto `/app/css`. Watch `hello.sass` show
 up on `http://localhost:4567/css/hello.css`.
 
 Be sure to add `gem "less"` to your Gemfile if you need Less.
+
+### Structure
+
+    ./
+    |- app/
+    |  |- init/           - Initializers (akin to Rails config/initializers)
+    |  |- models/         - Models
+    |  |- routes/         - Sinatra routes (akin to Rails controllers)
+    |  |- helpers/        - Helper modules
+    |  |- views/          - Views and layouts (haml, erb, etc)
+    |  |- css/            - Stylesheets served under /css
+    |  `- js/             - JS files served under /js
+    |
+    |- vendor/
+    |  |- gems/           - Gems that are stored in the repo
+    |  `- plugins/        - Reuseable plugins
+    |
+    |- config/            - Configuration files (*.rb)
+    |- lib/               - General purpose libraries
+    |- public/            - Static assets
+    |- test/
+    `- init.rb
+
+The main file is `init.rb` -- just run it to start the server.
+When init.rb is loaded, it:
+
+ - loads `*.rb` in `config/` to load settings
+ - loads `*.rb` in `app/init/` to initialize stuff
+ - loads `*.rb` in `app/` (recursive) to load routes and models
+ - starts the server
 
 ### And more
 
