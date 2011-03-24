@@ -5,13 +5,13 @@ class Main
 
     def jquery(version='1.4.4')
       cdn_js :remote    => GOOGLE_CDN % ["jquery/#{version}/jquery.min.js"],
-             :fallback  => '/js/jquery.min.js',
+             :fallback  => '/js/jquery.js',
              :test      => 'window.jQuery'
     end
 
     def jquery_ui(version='1.8.5')
       cdn_js :remote   => GOOGLE_CDN % ["jqueryui/#{version}/jquery-ui.min.js"],
-             :fallback => '/js/jquery-ui.min.js',
+             :fallback => '/js/jquery-ui.js',
              :test     => 'window.jQuery.fn.sortable'
     end
 
