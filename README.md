@@ -82,8 +82,10 @@ Be sure to add `gem "less"` to your Gemfile if you need Less.
     |  |- gems/           - Gems that are stored in the repo
     |  `- plugins/        - Reuseable plugins
     |
-    |- config/            - Configuration files (*.rb)
     |- lib/               - General purpose libraries
+    |  `- tasks/          - Rake tasks (*.rake)
+    |
+    |- config/            - Configuration files (*.rb)
     |- public/            - Static assets
     |- test/
     `- init.rb
