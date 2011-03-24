@@ -5,7 +5,7 @@ require 'capybara/dsl'
 
 class UnitTest < Test::Unit::TestCase
   def fixture_path(file)
-    File.open fileture_path(file)
+    File.open fixture_path(file)
     end
 
   def fixture_path(file)
