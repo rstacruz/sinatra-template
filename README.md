@@ -1,23 +1,12 @@
-My project
-==========
+# Sinatra template
 
-Do the Bundler dance:
-
-    rvm --rvmrc --create @myproject
-    bundle install
-
-Start:
-
-    rake start   # or `rackup`, `thin start`, etc
-    rake test
-
-Get started
------------
-
-Use this template:
+Here's how to use this template:
 
     git clone --depth 1 http://github.com/rstacruz/sinatra-template.git myproject
     rm -r myproject/.git
+
+    # Eventually get rid of this README file
+    mv README.example.md README.md
 
 Welcome!
 ========
@@ -102,7 +91,8 @@ Be sure to add `gem "less"` to your Gemfile if you need Less.
 The main file is `init.rb` -- just run it to start the server.
 When init.rb is loaded, it:
 
- - loads `*.rb` in `config/` to load settings
+ - loads `*.defaults.rb` in `config/` to load default settings
+ - loads `*.rb` in `config/` to load user settings -- these files are gitignore'd
  - loads `*.rb` in `app/init/` to initialize stuff
  - loads `*.rb` in `app/` (recursive) to load routes and models
  - starts the server

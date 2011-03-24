@@ -49,7 +49,7 @@ end
 
 Main.set :db, Sequel.connect(ENV['DATABASE_URL'] || Main.sequel)
 
-# Add to Rakefile:
+# Add to lib/tasks/db.rake:
 #
 #   desc "Create/alter tables"
 #   task(:migrate) {

@@ -15,3 +15,5 @@ task(:irb) {
 }
 
 task :default => :test
+
+Dir['./lib/tasks/**/*.task'].each { |f| load f }
