@@ -90,7 +90,7 @@ end
 module Sinatra
   module UserAgentHelpers
     def browser
-      UserAgent.new(env['HTTP_USER_AGENT'])
+      UserAgent.new(env['HTTP_USER_AGENT'] || '')
     end
   end
 end
