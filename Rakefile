@@ -26,4 +26,6 @@ task(:irb) {
 
 task :default => :test
 
+require './lib/task_helpers'
+
 Dir['./lib/tasks/**/*.rake'].each { |f| load f }
