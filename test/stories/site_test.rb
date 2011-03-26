@@ -5,4 +5,10 @@ class SiteTest < StoryTest
     visit '/'
     assert current_path == '/'
   end
+
+  javascript do
+    test "A JavaScript test" do
+      visit "/"
+    end
+  end
 end

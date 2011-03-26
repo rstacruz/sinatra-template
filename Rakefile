@@ -3,6 +3,16 @@ task(:test) {
   Dir['./test/**/*_test.rb'].each { |f| load f }
 }
 
+namespace(:test) do
+  [ :chrome, :firefox ].each do |driver|
+    desc "Run all tests with JS tests in #{driver.to_s.capitalize}"
+    task(driver) {
+      ENV['CAPYBARA_DRIVER'] = driver.to_s
+      Dir['./test/**/*_test.rb'].each { |f| load f }
+    }
+  end
+end
+
 desc "Starts the server"
 task(:start) {
   system "ruby init.rb"
