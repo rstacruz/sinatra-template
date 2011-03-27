@@ -4,7 +4,7 @@ require File.expand_path("../../init", __FILE__)
 require 'capybara/dsl'
 
 class UnitTest < Test::Unit::TestCase
-  def fixture_path(file)
+  def fixture(file)
     File.open fixture_path(file)
     end
 
