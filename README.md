@@ -66,6 +66,10 @@ up on `http://localhost:4567/css/hello.css`.
 
 Be sure to add `gem "less"` to your Gemfile if you need Less.
 
+### Rake tasks
+
+Type `rake` to see a list of commands with an extended help screen.
+
 ### Structure
 
     ./
