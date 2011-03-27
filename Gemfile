@@ -13,6 +13,7 @@ gem "maruku"
 #   gem "less"
 #   gem "ohm"
 #   gem "sequel"
+#   gem "i18n"
 #   gem "sqlite3", group: [:test, :development]
 #   gem "mysql",   group: :production
 
