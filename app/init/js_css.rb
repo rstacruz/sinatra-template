@@ -1,6 +1,6 @@
 require 'jsfiles'
-require 'sinatra/csssupport'
-require 'sinatra/jssupport'
+require 'sinatra/support/csssupport'
+require 'sinatra/support/jssupport'
 
 class Main
   set :js_files, JsFiles.new(

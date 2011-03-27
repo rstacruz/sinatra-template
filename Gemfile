@@ -4,6 +4,7 @@ gem "sinatra", require: "sinatra/base"
 gem "jsmin"
 gem "haml", ">= 3.0"
 gem "sinatra-content-for", require: "sinatra/content_for"
+gem "sinatra-support", require: "sinatra/support"
 gem "maruku"
 
 # Stuff you may also need:
