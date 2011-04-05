@@ -9,6 +9,7 @@ gem "maruku"
 
 # Stuff you may also need:
 #
+#   gem "sinatra-sequel", require: "sinatra/sequel"
 #   gem "coffee-script", require: "coffee_script"
 #   gem "less"
 #   gem "ohm"
