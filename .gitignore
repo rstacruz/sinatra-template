@@ -27,7 +27,7 @@ doc
 # Config
 config/*
 !config/defaults
-!config/*.example
+!config/README
 
 # Others
 .sass-cache
