@@ -24,6 +24,11 @@ tmtags
 .yardoc
 doc
 
+# Config
+config/*
+!config/defaults
+!config/*.example
+
 # Others
 .sass-cache
 .rvmrc

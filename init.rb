@@ -20,7 +20,7 @@ class Main < Sinatra::Base
 end
 
 # Load files
-(Dir['./config/*.defaults.rb'] +
+(Dir['./config/defaults/*.rb'] +
  Dir['./config/*.rb'] +
  Dir['./app/init/*.rb'] +
  Dir['./app/**/*.rb']
