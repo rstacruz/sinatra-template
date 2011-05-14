@@ -1,12 +1,10 @@
-require File.expand_path("../../story_helper", __FILE__)
+require_relative '../test_helper'
 
 class AppTest < UnitTest
-  describe "something" do
-    setup do
-    end
-    
-    test "the truth" do
-      assert true
-    end
+  setup do
+  end
+  
+  test "the truth" do
+    assert true
   end
 end

@@ -21,4 +21,6 @@ gem "maruku"
 group :test do
   gem "contest"
   gem "capybara"
+  gem "spork", "~> 0.8.4"
+  gem "spork-testunit", "~> 0.0.5"
 end

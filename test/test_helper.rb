@@ -1,6 +1,13 @@
 ENV["RACK_ENV"] = "test"
-require File.expand_path("../../init", __FILE__)
+require 'spork'
 
+Spork.prefork do
+end
+
+Spork.each_run do
+end
+
+require_relative '../init'
 require 'capybara/dsl'
 
 class UnitTest < Test::Unit::TestCase
