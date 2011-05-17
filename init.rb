@@ -20,10 +20,10 @@ class Main < Sinatra::Base
 end
 
 # Load files
-(Dir['./config/defaults/*.rb'] +
- Dir['./config/*.rb'] +
- Dir['./app/init/*.rb'] +
- Dir['./app/**/*.rb']
+(Dir['./config/defaults/*.rb'].sort +
+ Dir['./config/*.rb'].sort +
+ Dir['./app/init/*.rb'].sort +
+ Dir['./app/**/*.rb'].sort
 ).uniq.each { |rb| require rb }
 
 Main.set :port, ENV['PORT'].to_i  if ENV['PORT']
