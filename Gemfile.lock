@@ -23,7 +23,7 @@ GEM
     ffi (1.0.7)
       rake (>= 0.8.7)
     fssm (0.2.7)
-    haml (3.0.18)
+    haml (3.1.1)
     jsmin (1.0.1)
     json_pure (1.4.6)
     maruku (0.6.0)
@@ -46,7 +46,7 @@ GEM
       tilt (< 2.0, >= 1.2.2)
     sinatra-content-for (0.2)
       sinatra
-    sinatra-support (1.0.4)
+    sinatra-support (1.1.0)
       sinatra (>= 1.0)
     spork (0.8.4)
     spork-testunit (0.0.5)
@@ -63,11 +63,12 @@ DEPENDENCIES
   capybara
   compass (~> 0.11.1)
   contest
-  haml (>= 3.0)
-  jsmin
+  haml (~> 3.1.1)
+  jsmin (~> 1.0.1)
   maruku
-  sinatra
+  sass (~> 3.1.1)
+  sinatra (~> 1.2.6)
   sinatra-content-for
-  sinatra-support
+  sinatra-support (~> 1.1.0)
   spork (~> 0.8.4)
   spork-testunit (~> 0.0.5)

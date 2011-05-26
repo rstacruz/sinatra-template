@@ -1,10 +1,11 @@
 source "http://rubygems.org"
 
-gem "sinatra", require: "sinatra/base"
-gem "jsmin"
-gem "haml", ">= 3.0"
+gem "sinatra", "~> 1.2.6", require: "sinatra/base"
+gem "jsmin", "~> 1.0.1"
+gem "haml", "~> 3.1.1"
 gem "sinatra-content-for", require: "sinatra/content_for"
-gem "sinatra-support", require: "sinatra/support"
+gem "sinatra-support", "~> 1.1.0", require: "sinatra/support"
+gem "sass", "~> 3.1.1", require: "sass"
 gem "compass", "~> 0.11.1"
 gem "maruku"
 
