@@ -12,7 +12,7 @@ gem "sass", "~> 3.1.1"
 
 # Sinatra extensions
 gem "sinatra-content-for", require: "sinatra/content_for"
-gem "sinatra-support", "~> 1.1.3", require: "sinatra/support"
+gem "sinatra-support", "~> 1.2.0", require: "sinatra/support"
 
 # CSS extensions
 gem "compass", "~> 0.11.1"
