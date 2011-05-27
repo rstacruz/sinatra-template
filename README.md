@@ -35,6 +35,10 @@ files (like `haml.default.rb`).
  * To set settings: `Main.set :name, "Hello"`
  * To retrieve settings: `settings.name`
 
+### Compass Support
+
+Built-in support for http://compass-style.org.
+
 ### JS Minification
 
 Uses JsFiles (to compress JS files). This supports CoffeeScript support by the 
@@ -46,6 +50,7 @@ way.
 
 Some things from the HTML5 boilerplate were roughly followed:
 
+ * JQuery is in there
  * Modernizr built in
  * Load JQuery/Modernizr/etc via CDN (Google's and Cachedcommon's public CDNs)
  * DD_belatedPNG
@@ -56,19 +61,23 @@ Some things from the HTML5 boilerplate were roughly followed:
 Dump your CoffeeScripts to `/app/js`. The file `yourfile.coffee` will be 
 available in `http://localhost:4567/js/yourfile.js`.
 
-Be sure to add `gem "coffee-script", require: "coffee_script"` to your Gemfile 
-if you need this.
+(Edit your gemfile to add the `coffeescript` gem if needed.)
 
 ### Sass/SCSS/Less support
 
 Dump your Less, SCSS, or Sass files onto `/app/css`. Watch `hello.sass` show 
 up on `http://localhost:4567/css/hello.css`.
 
-Be sure to add `gem "less"` to your Gemfile if you need Less.
+(Edit your gemfile to add the `less` gem if needed.)
 
 ### Rake tasks
 
 Type `rake` to see a list of commands with an extended help screen.
+
+### Google CDN
+
+The jQuery helpers ensure that jQuery is loaded from Google servers first 
+before falling back to the app-provided jQuery file.
 
 ### Structure
 
@@ -97,15 +106,8 @@ Type `rake` to see a list of commands with an extended help screen.
 The main file is `init.rb` -- just run it to start the server.
 When init.rb is loaded, it:
 
- - loads `*.defaults.rb` in `config/` to load default settings
+ - loads `*.rb` in `config/defaults/` to load default settings
  - loads `*.rb` in `config/` to load user settings -- these files are gitignore'd
  - loads `*.rb` in `app/init/` to initialize stuff
  - loads `*.rb` in `app/` (recursive) to load routes and models
  - starts the server
-
-### And more
-
- * The jQuery helpers ensure that jQuery is loaded from Google servers first before
-   falling back to the app-provided jQuery file.
-
- * Uses AgentSniff to do browser detection. The HTML class is automatically set.
