@@ -30,10 +30,12 @@ GEM
       syntax (>= 1.0.0)
     mime-types (1.16)
     nokogiri (1.4.4)
+    pistol (0.0.2)
     rack (1.2.1)
     rack-test (0.6.0)
       rack (>= 1.0)
     rake (0.8.7)
+    rtopia (0.2.3)
     rubyzip (0.9.4)
     sass (3.1.1)
     selenium-webdriver (0.2.0)
@@ -66,6 +68,8 @@ DEPENDENCIES
   haml (~> 3.1.1)
   jsmin (~> 1.0.1)
   maruku
+  pistol (~> 0.0.2)
+  rtopia (~> 0.2.3)
   sass (~> 3.1.1)
   sinatra (~> 1.2.6)
   sinatra-content-for

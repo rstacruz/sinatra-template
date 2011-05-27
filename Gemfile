@@ -7,6 +7,8 @@ gem "sinatra-content-for", require: "sinatra/content_for"
 gem "sinatra-support", "~> 1.1.3", require: "sinatra/support"
 gem "sass", "~> 3.1.1", require: "sass"
 gem "compass", "~> 0.11.1"
+gem "pistol", "~> 0.0.2"
+gem "rtopia", "~> 0.2.3"
 gem "maruku"
 
 # Stuff you may also need:
