@@ -26,16 +26,7 @@ class StoryTest < UnitTest
     Capybara.app = Main
   end
 
-  def dump_page
-    str = page.body
-
-    file = File.open("/tmp/out-#{rand.to_s[2..-1]}.html", 'w') 
-    file.write str
-    file.close
-
-    system "open #{file.path}"
-  end
-
+  # Helpers
   def login!
     visit '/login'
 
