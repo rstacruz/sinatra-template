@@ -1,4 +1,5 @@
-require './lib/task_helpers'
+require './lib/log_helpers'
+extend LogHelpers
 
 desc "Starts the server [Development]"
 task(:start) {
