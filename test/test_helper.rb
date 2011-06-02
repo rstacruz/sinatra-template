@@ -1,5 +1,6 @@
 ENV["RACK_ENV"] = "test"
-require 'spork'
+require 'bundler'
+Bundler.require :default, :test
 
 Spork.prefork do
 end
