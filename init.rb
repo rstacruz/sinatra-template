@@ -5,7 +5,7 @@ require "bundler"
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 
 # Loadables
-$:.unshift *Dir["./vendor/*/*/lib"]
+# $:.unshift *Dir["./vendor/*/lib"]
 $:.unshift *Dir["./lib"]
 
 class Main < Sinatra::Base
