@@ -16,22 +16,19 @@ class Main
       select { |c| c.is_a?(Class) && c.ancestors.include?(Sequel::Model) }
   end
 
-  def self.tables
-    models.map(&:table_name) + [migrations_table_name]
-  end
-
   def self.db_flush!(&blk)
-    tables.each { |t|
+    database.tables.each { |t|
       yield t  if block_given?
-      database.drop_table t  if database.table_exists?(t)
+      database.drop_table t
     }
   end
 
-  def self.db_auto_migrate!(&blk)
+  def self.run_migrations!(&blk)
     load root('app/init/migrations.rb')
   end
 end
 
+# Rename lib/tasks/sequel.rake.example for rake tasks.
 # Add to test/helper.rb:
 #
 #   setup do
@@ -40,16 +37,3 @@ end
 #     Main.db_auto_migrate!
 #   end
 
-# Add to lib/tasks/db.rake:
-#
-#   desc "Create/alter tables"
-#   task(:migrate) {
-#     require './init'
-#     Main.db_auto_migrate! { |model| puts "* Migrating #{model}..." }
-#   }
-#   
-#   desc "Drop tables"
-#   task(:drop) {
-#     require './init'
-#     Main.db_flush! { |table| puts "* Dropping #{table}..." }
-#   }
