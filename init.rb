@@ -14,7 +14,7 @@ class Main < Sinatra::Base
   set      :views, root('app', 'views')
 
   enable   :raise_errors, :sessions, :logging
-  enable   :show_exceptions, :raise_errors  if development?
+  enable   :show_exceptions  if development?
 
   use      Rack::Session::Cookie
 end
