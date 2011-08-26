@@ -5,7 +5,7 @@ task(:test) {
 
 namespace(:test) do
   desc "Run tests with JS with given driver"
-  [ :chrome, :selenium, :celerity, :culerity ].each do |driver|
+  [ :chrome, :selenium, :celerity, :culerity, :webkit ].each do |driver|
     desc "Run all tests with JS tests in #{driver.to_s.capitalize} [Testing]"
     task(driver) {
       ENV['CAPYBARA_JS_DRIVER'] = driver.to_s

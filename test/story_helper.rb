@@ -3,7 +3,7 @@ require 'fileutils'
 require_relative 'test_helper'
 
 class StoryTest < UnitTest
-  include Capybara
+  include Capybara::DSL
 
   Capybara.register_driver :chrome do |app|
     Capybara::Driver::Selenium.new(app, :browser => :chrome)
