@@ -5,21 +5,22 @@ require_relative 'test_helper'
 class StoryTest < UnitTest
   include Capybara
 
-  Capybara.register_driver :selenium_chrome do |app|
+  Capybara.register_driver :chrome do |app|
     Capybara::Driver::Selenium.new(app, :browser => :chrome)
   end
 
-  case ENV['CAPYBARA_DRIVER']
-    when 'chrome'  then Capybara.default_driver = :selenium_chrome
-    when 'firefox' then Capybara.default_driver = :selenium
-  end
-
-  def self.javascript?
-    [:selenium, :selenium_chrome].include?(Capybara.default_driver)
+  def self.javascript_driver
+    ENV['CAPYBARA_JS_DRIVER']
   end
 
   def self.javascript(name='', &blk)
-    describe("JavaScript tests #{name}") { yield }   if javascript?
+    driver = javascript_driver
+
+    describe("JavaScript tests #{name}") {
+      setup { Capybara.current_driver = driver.to_sym }
+      teardown { Capybara.use_default_driver }
+      yield
+    }  if driver
   end
 
   setup do

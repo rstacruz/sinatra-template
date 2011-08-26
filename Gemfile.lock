@@ -50,9 +50,6 @@ GEM
       sinatra
     sinatra-support (1.2.0)
       sinatra (>= 1.0)
-    spork (0.8.4)
-    spork-testunit (0.0.5)
-      spork (>= 0.6.0)
     syntax (1.0.0)
     tilt (1.3)
     xpath (0.1.4)
@@ -74,5 +71,3 @@ DEPENDENCIES
   sinatra (~> 1.2.6)
   sinatra-content-for
   sinatra-support (~> 1.2.0)
-  spork (~> 0.8.4)
-  spork-testunit (~> 0.0.5)

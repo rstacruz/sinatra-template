@@ -2,12 +2,6 @@ ENV["RACK_ENV"] = "test"
 require 'bundler'
 Bundler.require :default, :test
 
-Spork.prefork do
-end
-
-Spork.each_run do
-end
-
 require_relative '../init'
 require 'capybara/dsl'
 

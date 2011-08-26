@@ -48,9 +48,9 @@ group :test do
   # Acceptance tests via browser simulation
   gem "capybara"
 
-  # Forking tests
-  gem "spork", "~> 0.8.4"
-  gem "spork-testunit", "~> 0.0.5"
+  # More Capybara drivers
+  # gem "capybara-envjs", require: "capybara/envjs"
+  # gem "capybara-webkit"
 
   # # RSpec-like syntax (two.should == 2)
   # gem "renvy", "~> 0.2.0"
