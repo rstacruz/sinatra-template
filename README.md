@@ -91,10 +91,6 @@ before falling back to the app-provided jQuery file.
     |  |- css/            - Stylesheets served under /css
     |  `- js/             - JS files served under /js
     |
-    |- vendor/
-    |  |- gems/           - Gems that are stored in the repo
-    |  `- plugins/        - Reuseable plugins
-    |
     |- lib/               - General purpose libraries
     |  `- tasks/          - Rake tasks (*.rake)
     |
