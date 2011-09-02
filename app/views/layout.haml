@@ -11,7 +11,7 @@
       %meta(name='viewport' content='width=device-width, initial-scale=1.0')
 
       %title!= title
-      %link(rel='stylesheet' media='screen' type='text/css' href='/css/style.css')
+      != css :main, media: 'screen, projection'
 
       -# All JavaScript at the bottom, except for Modernizr which enables HTML5
       -# elements & feature detects
@@ -28,5 +28,5 @@
       %script!= "DD_belatedPNG.fix('img, .png_bg');"
       != "<![endif]-->"
 
-      != settings.app_js.to_html
+      != js :application
 
