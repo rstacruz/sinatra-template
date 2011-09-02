@@ -2,11 +2,18 @@
 
 Here's how to use this template:
 
-    git clone --depth 1 http://github.com/rstacruz/sinatra-template.git myproject
-    rm -r myproject/.git
+``` bash
+$ git clone --depth 1 git://github.com/rstacruz/sinatra-template.git myproject
+$ rm -r myproject/.git
 
-    # Eventually get rid of this README file
-    mv README.example.md README.md
+# Set up
+$ bundle install        # Install gems
+$ rake vendor           # Vendor JS files
+
+
+# Eventually get rid of this README file
+$ mv README.example.md README.md
+```
 
 Welcome!
 ========

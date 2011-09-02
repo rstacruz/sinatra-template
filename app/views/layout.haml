@@ -15,16 +15,16 @@
 
       -# All JavaScript at the bottom, except for Modernizr which enables HTML5
       -# elements & feature detects
-      != modernizr
+      != js_cdn :modernizr
 
   %body
     != yield
 
     - unless request.xhr?
-      != jquery
+      != js_cdn :jquery
 
       != "<!--[if lt IE 7 ]>"
-      != dd_belatedpng
+      != js_cdn :dd_belated_png
       %script!= "DD_belatedPNG.fix('img, .png_bg');"
       != "<![endif]-->"
 
