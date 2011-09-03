@@ -22,10 +22,5 @@ class Main
       remote:     CC_CDN % ["modernizr/2.0.6", 'modernizr-min.js'],
       fallback:   '/js/vendor/modernizr.js'
     },
-    dd_belated_png: {
-      remote:     CC_CDN % ["dd-belated-png/0.0.8", 'dd-belated-png-min.js'],
-      fallback:   '/js/vendor/dd-belated-png.js',
-      test:       'window.DD_belatedPNG'
-    }
-    }
+  }
 end

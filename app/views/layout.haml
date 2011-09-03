@@ -22,11 +22,5 @@
 
     - unless request.xhr?
       != js_cdn :jquery
-
-      != "<!--[if lt IE 7 ]>"
-      != js_cdn :dd_belated_png
-      %script!= "DD_belatedPNG.fix('img, .png_bg');"
-      != "<![endif]-->"
-
       != js :application
 
