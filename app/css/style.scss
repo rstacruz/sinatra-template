@@ -1,6 +1,7 @@
+@import 'html5';
 @import 'settings';
 
-$reset-font: arial, sans-serif;
+$reset-font: sans-serif;
 @include ae-reset;
 
 #remove-me {
