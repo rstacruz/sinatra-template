@@ -1,6 +1,6 @@
 def get(url, options={})
   require 'fileutils'
-  target = options[:as]
+  target = options[:as].squeeze('/')
 
   puts "* #{target}..."
   FileUtils.mkdir_p File.dirname(target)
@@ -15,6 +15,7 @@ task :vendor, :library do |_, args|
   lib = lib.to_sym  if lib
 
   packages = Main.js_packages
+  prefix   = './app'
 
   if lib
     options = packages[lib]
@@ -23,11 +24,11 @@ task :vendor, :library do |_, args|
       exit
     end
 
-    get options[:remote], as: options[:fallback]
+    get options[:remote], as: "#{prefix}/#{options[:fallback]}"
 
   else
     packages.each { |name, options|
-      get options[:remote], as: options[:fallback]
+      get options[:remote], as: "#{prefix}/#{options[:fallback]}"
     }
   end
 
