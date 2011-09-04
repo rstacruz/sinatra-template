@@ -1,6 +1,6 @@
 class Main
-  GOOGLE_CDN = "http://ajax.googleapis.com/ajax/libs/%s"
-  CC_CDN     = "http://cachedcommons.org/cache/%s/javascripts/%s"
+  GOOGLE_CDN = "//ajax.googleapis.com/ajax/libs/%s"
+  CDNJS_CDN  = "//cdnjs.cloudflare.com/ajax/libs/%s"
 
   set :js_packages, {
     jquery: {
@@ -14,12 +14,12 @@ class Main
       test:     'window.jQuery.fn.sortable'
     },
     underscore: {
-      remote:     CC_CDN % ["underscore/1.1.7", 'underscore-min.js'],
+      remote:     CDNJS_CDN % ['underscore.js/1.1.7/underscore-min.js'],
       fallback:   '/js/vendor/underscore.js',
       test:       'window._'
     },
     modernizr: {
-      remote:     CC_CDN % ["modernizr/2.0.6", 'modernizr-min.js'],
+      remote:     CDNJS_CDN % ['modernizr/2.0.6/modernizr.min.js'],
       fallback:   '/js/vendor/modernizr.js'
     },
   }
