@@ -9,5 +9,8 @@ class Main
       String :keywords, text: true
     end
   end
+  
+  # Load moar
+  Dir[Main.root('app/migrations/*.rb')].sort.each { |f| load f }
 end
 

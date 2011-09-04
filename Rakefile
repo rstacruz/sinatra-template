@@ -36,7 +36,7 @@ namespace :recipes do
     Dir["./**/*#{recipe}.*.example"].each { |from|
       to = from.gsub(/(\.#{recipe})|(\.example)/, '')
       puts "%40s -> %s" % [ from, to ]
-      FileUtils.mv from, to
+      FileUtils.mv from, to  unless ENV['SIMULATE']
     }
     puts "Okay, now add the appropriate gems to your gemfile."
   end
