@@ -38,5 +38,6 @@ namespace :recipes do
       puts "%40s -> %s" % [ from, to ]
       FileUtils.mv from, to
     }
+    puts "Okay, now add the appropriate gems to your gemfile."
   end
 end

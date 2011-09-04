@@ -1,6 +1,6 @@
 # Also do:
 # - Add sinatra-sequel to the Gemfile
-# - Rename migrations.rb.example to migrations.rb
+# - Rename migrations.sequel.rb.example to migrations.rb
 
 Sequel::Model.plugin :validation_helpers
 
@@ -27,13 +27,3 @@ class Main
     load root('app/init/migrations.rb')
   end
 end
-
-# Rename lib/tasks/sequel.rake.example for rake tasks.
-# Add to test/helper.rb:
-#
-#   setup do
-#     Main.set :migrations_log, lambda { StringIO.new }
-#     Main.db_flush!
-#     Main.db_auto_migrate!
-#   end
-
