@@ -15,13 +15,16 @@ Setup
 
 Create an RVM gemset (optional):
 
-    rvm --rvmrc --create @myproject
+    $ rvm --rvmrc --create @myproject
 
 Install gems:
 
-    bundle install
+    $ bundle install
 
-Start:
+Start it like any Rack app:
 
-    rake start   # or `rackup`, `thin start`, etc
-    rake test
+    $ rackup       # or `thin start`, `unicorn`, etc
+
+Run tests:
+
+    $ rake test
